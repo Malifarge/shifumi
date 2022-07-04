@@ -15,11 +15,17 @@
 
 <body>
     <!-- header -->
-    <header>
+    <header class="flex initialitems">
 
-        <h1>Shifumi</h1>
+        <section class="flex initialitems">
+            <h1>Shifumi</h1>
+            <article class="flex telrow">
+                <img src="./images/FR.png" alt="Français">
+                <img src="./images/EN.png" alt="English">
+            </article>
+        </section>
 
-        <nav>
+        <nav class="flex telrow initialitems">
             <a href="./duel.html">Duel</a>
             <a href="./5players.html">5 players</a>
         </nav>
@@ -33,7 +39,7 @@
 
         <h2 class="FR affich">Règles</h2>
 
-        <h2 class="EN">Rules</h2>
+        <h2 class="EN Naffich">Rules</h2>
 
         <section class="flex">
             
@@ -43,29 +49,40 @@
 
                 <h3>Duel</h3>
 
-                <p class="FR affich">
-                    Shifumi est un duel entre deux joueurs. Chaque joueurs doit faire un signe de la main en meme temps: pierre, feuille ou ciseau.
-                    <br><br>
-                    <ul>
-                        <li>- La pierre bat le ciseau</li>
-                        <li>- Le ciseaux bat la feuille</li>
-                        <li>- La feuille bat la pierre</li>
-                    </ul>
-                    <br>
-                    Le jeu se déroule par rounds, le premier à 3 victoires à gagné.
-                </p>
+                <!-- en français -->
 
-                <p class="EN">
-                    Shifumi is a duel between two players. Each player must make a hand signal at the same time: stone, leaf or scissors.
-                    <br><br>
-                    <ul>
-                        <li>- Rock beats Scissors </li>
-                        <li>- Scissors beats Leaf</li>
-                        <li>- Leaf beats Rock</li>
-                    </ul>
-                    <br>
-                    The game is played in rounds, the first to 3 wins.
-                </p>
+                <div class="FR affich">
+                    <p>
+                        Shifumi est un duel entre deux joueurs. Chaque joueurs doit faire un signe de la main en meme temps: pierre, feuille ou ciseau.
+                        <br><br>
+                        <ul>
+                            <li>- La pierre bat le ciseau</li>
+                            <li>- Le ciseaux bat la feuille</li>
+                            <li>- La feuille bat la pierre</li>
+                        </ul>
+                        <br>
+                        Le jeu se déroule par rounds, le premier à 3 victoires à gagné.
+                    </p>
+
+                    <button onclick="window.location.href='./duel.html'">Jouer</button>
+                </div>
+
+                <!-- en Anglais -->
+
+                <div class="EN Naffich">
+                    <p>
+                        Shifumi is a duel between two players. Each player must make a hand signal at the same time: stone, leaf or scissors.
+                        <br><br>
+                        <ul>
+                            <li>- Rock beats Scissors </li>
+                            <li>- Scissors beats Leaf</li>
+                            <li>- Leaf beats Rock</li>
+                        </ul>
+                        <br>
+                        The game is played in rounds, the first to 3 wins.
+                    </p>
+                    <button onclick="window.location.href='./duel.html'">Play</button>
+                </div>
 
             </article>
 
@@ -74,40 +91,52 @@
             <article>
 
                 <h3>5 players</h3>
-            
-                <p class="FR affich">
+                
+                <!-- en français -->
 
-                    Les règles sont les suivantes:
-                        <br><br>
-                        <ul>
-                            <li>
-                                - Un signe ne bat qu'un seul autre signe
-                                <ul>
-                                    <li>- Ex: Si j'ai 1 ciseaux et 4 feuilles, seulement 1 feuille est éliminée, choisie aléatoirement</li>
-                                    <li>- Ex: Si j'ai 3 ciseaux, 1 pierre et 1 feuille, j'aurais 1 ciseaux, 1 pierre et 1 feuille d'éliminés</li>
-                                </ul>
-                            </li>
-                            <li>- Elimination directe</li>
-                            <li>- Le dernier survivant a gagné</li>
-                        </ul>
-                </p>
+                <div class="FR affich">
+                    <p>
 
-                <p class="EN">
+                        Les règles sont les suivantes:
+                            <br><br>
+                            <ul>
+                                <li>
+                                    - Un signe ne bat qu'un seul autre signe
+                                    <ul>
+                                        <li>- Ex: Si j'ai 1 ciseaux et 4 feuilles, seulement 1 feuille est éliminée, choisie aléatoirement</li>
+                                        <li>- Ex: Si j'ai 3 ciseaux, 1 pierre et 1 feuille, j'aurais 1 ciseaux, 1 pierre et 1 feuille d'éliminés</li>
+                                    </ul>
+                                </li>
+                                <li>- Elimination directe</li>
+                                <li>- Le dernier survivant a gagné</li>
+                            </ul>
+                    </p>
+                    <button onclick="window.location.href='./5players.html'">Jouer</button>
+                </div>
 
-                    The rules are as follows:
-                        <br><br>
-                        <ul>
-                            <li>
-                                - A sign beats only one other sign
-                                <ul>
-                                    <li>- Ex: If I have 1 scissors and 4 leaves, only 1 leaf is eliminated, chosen randomly</li>
-                                    <li>- Ex: If I have 3 scissors, 1 stone and 1 leaf, I will have 1 scissor, 1 stone and 1 leaf eliminated</li>
-                                </ul>
-                            </li>
-                            <li>- Direct elimination</li>
-                            <li>- The last survivor has won</li>
-                        </ul>
-                </p>
+                <!-- en anglais -->
+
+                <div  class="EN Naffich">
+                    <p>
+
+                        The rules are as follows:
+                            <br><br>
+                            <ul>
+                                <li>
+                                    - A sign beats only one other sign
+                                    <ul>
+                                        <li>- Ex: If I have 1 scissors and 4 leaves, only 1 leaf is eliminated, chosen randomly</li>
+                                        <li>- Ex: If I have 3 scissors, 1 stone and 1 leaf, I will have 1 scissor, 1 stone and 1 leaf eliminated</li>
+                                    </ul>
+                                </li>
+                                <li>- Direct elimination</li>
+                                <li>- The last survivor has won</li>
+                            </ul>
+                    </p>
+                    <button onclick="window.location.href='./5players.html'">Play</button>
+                </div>
+
+                
 
             </article>
 
@@ -117,6 +146,7 @@
     </main>
 
     <script src="./main.js"></script>
+    
 </body>
 
 </html>

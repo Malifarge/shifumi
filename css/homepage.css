@@ -1,0 +1,48 @@
+/* main */
+
+main{
+    padding: 30px;
+}
+
+main article{
+    position: relative;
+    padding: 10px;
+    box-shadow:  -5px 5px 13px #adadad,
+             5px -5px 13px #ffffff;
+    width: 45%;
+    height: 600px;
+}
+
+li{
+    margin: 30px;
+}
+
+button{
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+    width: 100px;
+    height: 30px;
+    color: white;
+    background: #242121;
+    border-radius: 20px;
+    border: 2px solid #adadad;
+}
+
+button:hover{
+    text-decoration: 2px #FC7987 underline;
+    cursor: pointer;
+}
+
+/* media queries */
+
+@media (max-width: 768px) {
+    main article{
+        width: 100%;
+    }
+
+    button{
+     right: 20px;
+     bottom: 20px;   
+    }
+}
