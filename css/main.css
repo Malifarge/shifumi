@@ -46,6 +46,10 @@ header img{
     border-radius: 50%;
 }
 
+header img:hover{
+    cursor: pointer;
+}
+
 nav{
     gap: 50px;
 }
