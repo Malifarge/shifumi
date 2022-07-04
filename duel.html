@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duel</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/duel.css">
+
+</head>
+
+<body>
+    <!-- header -->
+    <header class="flex initialitems">
+
+        <section class="flex initialitems">
+            <h1>Shifumi</h1>
+            <article class="flex telrow">
+                <img src="./images/FR.png" alt="Français" onclick="Français()" class="pointer">
+                <img src="./images/EN.png" alt="English" onclick="English()" class="pointer">
+            </article>
+        </section>
+
+        <nav class="flex telrow initialitems">
+            <a href="./index.html"><p class="FR affich">Accueil</p> <p class="EN Naffich">Home</p></a>
+            <a href="./5players.html">5 players</a>
+        </nav>
+
+    </header>
+
+    <!-- Le jeu -->
+
+    <main>
+
+        <section class="flex cardPos">
+
+            <!-- choix Joueur -->
+
+            <article>
+
+                <h2 class="FR affich">Mon choix</h2>
+                <h2 class="EN Naffich">My choice</h2>
+
+                <div class="flex row affich2">
+                    <div class="pierre affich pointer" onclick="test()"></div>
+                    <div class="feuille affich pointer"></div>
+                </div>
+                <div class="flex row row2 affich2">  
+                    <div class="ciseaux affich pointer"></div>
+                    <div class="random affich pointer"></div>
+                </div>
+
+                <div class="Naffich" id="resulta"></div>
+
+            </article>
+
+            <!-- Choix IA -->
+
+            <article>
+
+                <h2 class="FR affich">choix de l'IA</h2>
+                <h2 class="EN Naffich">IA choice</h2>
+                <div class="random affich2 iachoice" id="IA"></div>
+
+
+            </article>
+        </section>
+
+    </main>
+
+    <script src="./main.js"></script>
+    
+</body>
+
+</html>

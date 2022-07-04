@@ -1,0 +1,22 @@
+
+/* main */
+
+.row{
+    gap: 50px;
+}
+
+.row2{
+    margin-top: 50px;
+}
+
+.cardPos {
+    align-items: flex-start;
+}
+
+.iachoice{
+    margin-top: 250px;
+}
+
+.affich2{
+    display: flex;
+}

@@ -1,9 +1,5 @@
 /* main */
 
-main{
-    padding: 30px;
-}
-
 main article{
     position: relative;
     padding: 10px;
@@ -31,7 +27,6 @@ button{
 
 button:hover{
     text-decoration: 2px #FC7987 underline;
-    cursor: pointer;
 }
 
 /* media queries */

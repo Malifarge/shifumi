@@ -46,9 +46,6 @@ header img{
     border-radius: 50%;
 }
 
-header img:hover{
-    cursor: pointer;
-}
 
 nav{
     gap: 50px;
@@ -59,7 +56,7 @@ nav a{
     text-decoration: none;
 }
 
-a:hover{
+a:hover, a p:hover{
     color: white;
     text-decoration: 2px #FC7987 underline;
     font-size: 17px;
@@ -67,12 +64,49 @@ a:hover{
 
 /* main */
 
+main{
+    padding: 30px;
+}
+
 .Naffich{
     display: none;
 }
 
 .affich{
     display: block;
+}
+
+.pierre,.feuille,.ciseaux,.random{
+    width: 250px;
+    height: 350px;
+}
+
+.pointer{
+    cursor: pointer;
+}
+
+.pierre{
+    background: url(../images/rockcard.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.feuille{
+    background: url(../images/papercard.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.ciseaux{
+    background: url(../images/scissorscard.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.random{
+    background: url(../images/random.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 /* media queries */
