@@ -36,10 +36,23 @@ const Français = () =>{
     });
 }
 
+
+// préparation des constante et variable pour le jeu
+
+const carditems = document.getElementsByClassName("affich2")
+const card = Array.from(carditems)
+const cardChoice = document.getElementById("resulta")
+const iachoice = document.getElementById("IA")
+let result = ""
+let scorePlayer = 0
+let scoreIA=0
+let start =0
+let j = 0
+let myInterval
+
 // chiffre random
 
 const random = () => {
-    let result = ""
     const numbers = Math.floor(Math.random()*150)+1
     if (numbers <=50){
         result = "pierre"
@@ -56,60 +69,72 @@ const random = () => {
 
 // preparation du jeu
 
-let scorePlayer = 0
-let scoreIA=0
-
 const game = () =>{
-    const card = document.getElementsByClassName("affich2")
-    card.classList.add("Naffich")
-    card.classList.remove("affich2")
+    card.forEach(element => {
+        element.classList.add("Naffich")
+        element.classList.remove("affich2")
+    });
 }
 
 // roulement de carte
 
-const cardmove = (start,j) =>{
-    iachoice.remove(`${start}`)
+const cardMove = (start,j) =>{
+    console.log("hello");
+    iachoice.classList.remove(start)
     const arrayresutl = ["feuille","pierre","ciseaux"]
-    start = arrayresutl[i]
-    j++
-    return start
+    start = arrayresutl[j]
+    iachoice.classList.add(start)
+    if (j === 3){
+        j = 0
+    }  
+}
+
+// stop roulement
+
+const stopMove = () =>{
+    clearInterval(myInterval)
 }
 
 // si le choix est ciseaux 
 
 const choiceScissors = () =>{
-    const cardChoice = document.getElementById("resulta")
-    const iachoice = document.getElementsById("IA")
     game()
     cardChoice.classList.add("affich2")
     cardChoice.classList.add("ciseaux")
     cardChoice.classList.remove("Naffich")
+    iachoice.classList.remove("random")
+    iachoice.classList.add("pierre")
     random()
     if (result ==="feuille"){
-        iachoice.classList.remove("random")
-        for (let i=0; i<25;i++){
-            cardmove("feuille", 0)
-            cardChoice.classList.add(`${start}`)
-            setInterval(cardmove,1000)
+        for (let i = 0; i <25;i++){
+        myInterval = setInterval(cardMove, 500);
         }
+        stopMove()
         iachoice.classList.add("feuille")
+        console.log("feuille");
         scorePlayer ++
-    } else if (result === "pierre"){
-        iachoice.classList.remove("random")
-        for (let i=0; i<25;i++){
-            cardmove("feuille", 0)
-            cardChoice.classList.add(`${start}`)
-            setInterval(cardmove,1000)
-        }
-        iachoice.classList.add("pierre")
-        scoreIA ++
-    } else {
-        iachoice.classList.remove("random")
-        for (let i=0; i<25;i++){
-            cardmove("feuille", 0)
-            cardChoice.classList.add(`${start}`)
-            setInterval(cardmove,1000)
-        }
-        iachoice.classList.add("ciseaux")
     }
+    //  else if (result === "pierre"){
+    //     iachoice.classList.remove("random")
+    //     for (let i=0; i<25;i++){
+    //         cardmove("feuille", 0)
+    //         cardChoice.classList.add(`${start}`)
+    //         setInterval(cardmove(start,j),1000)
+    //     }
+    //     iachoice.classList.add("pierre")
+    //     console.log("pierre");
+    //     scoreIA ++
+    // } else {
+    //     iachoice.classList.remove("random")
+    //     for (let i=0; i<25;i++){
+    //         cardmove("feuille", 0)
+    //         cardChoice.classList.add(`${start}`)
+    //         setInterval(cardmove(start,j),1000)
+    //     }
+    //     iachoice.classList.add("ciseaux")
+    //     console.log("ciseaux");
+    // }
+
+    console.log(scorePlayer,scoreIA);
+
 }
