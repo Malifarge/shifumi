@@ -53,7 +53,7 @@
                 </div>
 
                 <div class="Naffich" id="resulta"></div>
-
+                <p id="playerscore">0</p>
             </article>
 
             <!-- Choix IA -->
@@ -63,15 +63,35 @@
                 <h2 class="FR affich">choix de l'IA</h2>
                 <h2 class="EN Naffich">IA choice</h2>
                 <div class="pierre affich" id="IA"></div>
-
+                <p id="iascore">0</p>
 
             </article>
         </section>
+        
+        <!-- button new round -->
 
+        <section class="flex btn">
+            <button class="Naffich" id="NewRound"><p class="FR affich">Nouveau Round</p><p class="EN Naffich">New Round</p></button>
+            <p id="gameWinner" class="Naffich"></p>
+            <button class="Naffich" id="NewGame"><p class="FR affich">Nouvelle partie</p><p class="EN Naffich">New Game</p></button>
+        </section>
+
+        <!-- historique des round -->
+
+        <section>
+
+            <article>
+                <h2 class="FR affich">Historique des rounds</h2>
+                <h2 class="EN Naffich">Rounds history</h2>
+            </article>
+            <article class="flex" id="history">
+
+            </article>
+
+        </section>
     </main>
 
     <script src="./main.js"></script>
     
 </body>
-
 </html>

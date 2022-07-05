@@ -28,6 +28,7 @@ p,a,li{
     font-size: 15px;
 }
 
+
 /* header */
 
 header{
@@ -107,6 +108,17 @@ main{
     background: url(../images/random.jpg);
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+button{
+    color: white;
+    background: #242121;
+    border-radius: 20px;
+    border: 2px solid #adadad;
+}
+
+button:hover{
+    text-decoration: 2px #FC7987 underline;
 }
 
 /* media queries */

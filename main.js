@@ -48,6 +48,17 @@ let iaClass="pierre"
 let playerChoice
 let playerScore= 0
 let iaScore = 0
+const scorePlayer=document.getElementById("playerscore")
+const scoreIa=document.getElementById("iascore")
+let roundWinner
+let winner
+const rounds = document.getElementById("history")
+let roundsNumber = 1
+let iaCard
+let playerCard
+const newRound = document.getElementById("NewRound")
+const newGame = document.getElementById("NewGame")
+const  gameWinner = document.getElementById("gameWinner")
 
 // chiffre random
 
@@ -97,6 +108,8 @@ const myStopFunction = () => {
     clearInterval(myInterval);
   }
 
+//   jeu
+
 const game = () =>{
     playerChoice = event.target.className
     gamePrepare()
@@ -105,31 +118,83 @@ const game = () =>{
     cardChoice.classList.remove("Naffich")
     if (playerChoice==="random affich pointer"){
         random()
-        console.log(result);
         playerChoice=`${result} affich pointer`
     }
-    console.log(playerChoice);
     if (playerChoice==="ciseaux affich pointer"){
         cardChoice.classList.add("ciseaux")
+        playerCard="ciseaux"
         if(iachoice.className==="affich pierre"){
             iaScore++
+            roundWinner="IA"
+            iaCard="pierre"
         }else if (iachoice.className==="affich feuille"){
             playerScore++
+            roundWinner="Player/Joueur"
+            iaCard="feuille"
+        }else{
+            roundWinner="Nobody/Personne"
+            iaCard="ciseaux"
         }
     }else if (playerChoice==="feuille affich pointer"){
         cardChoice.classList.add("feuille")
+        playerCard = "feuille"
         if (iachoice.className==="affich ciseaux"){
             iaScore++
+            roundWinner="IA"
+            iaCard="ciseaux"
         }else if (iachoice.className==="affich pierre"){
             playerScore++
+            roundWinner="Player/Joueur"
+            iaCard="pierre"
+        }else{
+            roundWinner="Nobody/Personne"
+            iaCard="feuille"
         }
     }else if(playerChoice==="pierre affich pointer"){
         cardChoice.classList.add("pierre")
+        playerCard="pierre"
         if(iachoice.className==="affich feuille"){
             iaScore++
+            roundWinner="IA"
+            iaCard="feuille"
         }else if(iachoice.className==="affiche ciseaux"){
             playerScore++
+            roundWinner="Player/Joueur"
+            iaCard="ciseaux"
+        }else{
+            roundWinner="Nobody/Personne"
+            iaCard="pierre"
         }
     }
-    console.log(playerScore,iaScore);
+    scorePlayer.textContent = `${playerScore}`
+    scoreIa.textContent = `${iaScore}`
+
+    rounds.innerHTML += `
+    <div>
+        <h3>Round ${roundsNumber}</h3>
+        
+        <p> <span class="EN Naffich">Player  : ${playerCard}</span> <span class="FR affich">Joueur  : ${playerCard}</span></p>
+        <p> IA : ${iaCard}</p>
+        <br>
+        <p><span class="EN Naffich">${roundWinner} Win</span> <span class="FR affich">${roundWinner} gagne</span></p>
+    </div>
+    `
+
+    if (playerScore>iaScore ){
+        winner="Player/Joueur"
+    }else{
+        winner="IA"
+    }
+
+    if (playerScore < 3 && iaScore < 3){
+        newRound.classList.remove("Naffich")
+        newRound.classList.add("affich")
+    } else {
+        newGame.classList.remove("Naffich")
+        newGame.classList.add("affich")
+        gameWinner.classList.remove("Naffich")
+        gameWinner.classList.add("affich")
+        gameWinner.innerHTML=`${winner} <span class="EN Naffich">Win</span><span class="FR affich">Gagne</span> `
+    }
+
 }
