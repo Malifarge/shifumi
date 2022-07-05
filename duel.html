@@ -38,7 +38,7 @@
 
             <!-- choix Joueur -->
 
-            <article>
+            <article class="Joueur">
 
                 <h2 class="FR affich">Mon choix</h2>
                 <h2 class="EN Naffich">My choice</h2>
@@ -68,12 +68,12 @@
             </article>
         </section>
         
-        <!-- button new round -->
+        <!-- button new round and new game -->
 
         <section class="flex btn">
-            <button class="Naffich" id="NewRound"><p class="FR affich">Nouveau Round</p><p class="EN Naffich">New Round</p></button>
+            <button class="Naffich" id="NewRound" onclick="Roundnew()"><p class="FR affich">Nouveau Round</p><p class="EN Naffich">New Round</p></button>
             <p id="gameWinner" class="Naffich"></p>
-            <button class="Naffich" id="NewGame"><p class="FR affich">Nouvelle partie</p><p class="EN Naffich">New Game</p></button>
+            <button class="Naffich" id="NewGame" onclick="reset()"><p class="FR affich">Nouvelle partie</p><p class="EN Naffich">New Game</p></button>
         </section>
 
         <!-- historique des round -->
@@ -84,7 +84,7 @@
                 <h2 class="FR affich">Historique des rounds</h2>
                 <h2 class="EN Naffich">Rounds history</h2>
             </article>
-            <article class="flex" id="history">
+            <article class="flex wrap" id="history">
 
             </article>
 

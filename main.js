@@ -59,6 +59,9 @@ let playerCard
 const newRound = document.getElementById("NewRound")
 const newGame = document.getElementById("NewGame")
 const  gameWinner = document.getElementById("gameWinner")
+let returnCardItems
+let returnCard
+let myInterval
 
 // chiffre random
 
@@ -81,7 +84,7 @@ const random = () => {
 
 const gamePrepare = () =>{
     card.forEach(element => {
-        element.classList.add("Naffich")
+        element.classList.add("Naffich2")
         element.classList.remove("affich2")
     });
 }
@@ -102,8 +105,15 @@ const moveCard = () =>{
 
 // réglages roulement
 
-const myInterval = setInterval(moveCard, 500);
+// start
 
+const moveCardStart = () =>{
+ myInterval = setInterval(moveCard, 500);
+}
+
+window.onload = moveCardStart
+
+// stop
 const myStopFunction = () => {
     clearInterval(myInterval);
   }
@@ -157,7 +167,7 @@ const game = () =>{
             iaScore++
             roundWinner="IA"
             iaCard="feuille"
-        }else if(iachoice.className==="affiche ciseaux"){
+        }else if(iachoice.className==="affich ciseaux"){
             playerScore++
             roundWinner="Player/Joueur"
             iaCard="ciseaux"
@@ -179,6 +189,7 @@ const game = () =>{
         <p><span class="EN Naffich">${roundWinner} Win</span> <span class="FR affich">${roundWinner} gagne</span></p>
     </div>
     `
+    roundsNumber++
 
     if (playerScore>iaScore ){
         winner="Player/Joueur"
@@ -194,7 +205,41 @@ const game = () =>{
         newGame.classList.add("affich")
         gameWinner.classList.remove("Naffich")
         gameWinner.classList.add("affich")
-        gameWinner.innerHTML=`${winner} <span class="EN Naffich">Win</span><span class="FR affich">Gagne</span> `
+        gameWinner.innerHTML=`<span class="EN Naffich Win">${winner} Win</span><span class="FR affich Win">${winner} Gagne</span> `
     }
+
+}
+
+// nouveau round
+
+const Roundnew = () =>{
+    returnCardItems = document.getElementsByClassName("Naffich2")
+    returnCard = Array.from(returnCardItems)
+    cardChoice.className="Naffich"
+    iachoice.className="pierre affich"
+    returnCard.forEach(element => {
+        element.classList.add("affich2")
+        element.classList.remove("Naffich2")
+    });
+    moveCardStart()
+    newRound.classList.remove("affich")
+    newRound.classList.add("Naffich")
+}
+
+// nouvelle partie
+
+const reset = () =>{
+    Roundnew()
+    playerScore= 0
+    iaScore = 0
+    scorePlayer.textContent = `${playerScore}`
+    scoreIa.textContent = `${iaScore}`
+    rounds.innerHTML=""
+    newGame.classList.remove("affich")
+    newGame.classList.add("Naffich")
+    gameWinner.innerHTML=""
+    gameWinner.classList.remove("affich")
+    gameWinner.classList.add("Naffich")
+    roundsNumber = 1
 
 }

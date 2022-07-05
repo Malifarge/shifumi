@@ -30,5 +30,26 @@ button{
 }
 
 .btn{
-    justify-content: center;
+    flex-direction: column;
+}
+
+.wrap{
+    flex-wrap: wrap;
+}
+
+.Win{
+    font-size: 40px;
+    color: #FC7987;
+    margin-bottom: 10px;
+}
+/* media queries */
+
+@media (max-width: 768px){
+    main{
+        text-align: center;
+    }
+
+    .cardPos{
+        align-items: center;
+    }
 }
