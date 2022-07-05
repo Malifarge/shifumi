@@ -21,6 +21,10 @@ const IA3= document.getElementById("IA3")
 const IA4= document.getElementById("IA4")
 const startCard = document.getElementsByClassName("startCard")
 const startCardArray= Array.from(startCard)
+const gameWinner = document.getElementById("gameWinner")
+const newRound = document.getElementById("NewRound")
+const newGame = document.getElementById("NewGame")
+let nocount
 
 // Random
 
@@ -168,7 +172,69 @@ const game = () =>{
 
     players = document.getElementsByClassName("player")
     playersArray=Array.from(players)
-    console.log(playersArray.length);
-    
-    
+    console.log(playersArray);
+    if (playersArray.length ===0){
+        gameWinner.classList.add("affich")
+        gameWinner.classList.remove("Naffich")
+        gameWinner.innerHTML= `<span class="FR affich">Personne ne gagne</span><span class="EN Naffich">Nobody win</span>`
+    }
+     else if (cardChoice.className==="pierre supr Naffich" ||cardChoice.className==="feuille supr Naffich"||cardChoice.className==="ciseaux supr Naffich") {
+        gameWinner.classList.add("affich")
+        gameWinner.classList.remove("Naffich")
+        gameWinner.innerHTML= `<span class="FR affich">Tu as perdu</span><span class="EN Naffich">You loose</span>`
+        newGame.classList.remove("Naffich")
+        newGame.classList.add("affich")
+    }else if (playersArray.length > 1){
+        newRound.classList.remove("Naffich")
+        newRound.classList.add("affich")
+    }else{
+        gameWinner.classList.add("affich")
+        gameWinner.classList.remove("Naffich")
+        gameWinner.innerHTML= `<span class="FR affich">Tu à gagner </span><span class="EN Naffich">You Win</span>`
+        newGame.classList.remove("Naffich")
+        newGame.classList.add("affich")
+    }
+
+}
+
+// newRound
+
+const Roundnew = () =>{
+    returnCardItems = document.getElementsByClassName("Naffich2")
+    returnCard = Array.from(returnCardItems)
+    cardChoice.className="Naffich"
+    iachoice.className="random affich"
+    iachoice[0].classList.remove(iaClass)
+    iachoice[1].classList.remove(iaClass2)
+    iachoice[2].classList.remove(iaClass3)
+    iachoice[3].classList.remove(iaClass4)
+    iaClass="random"
+    iaClass2="random"
+    iaClass3="random"
+    iaClass4="random"
+    iachoice[0].classList.add(iaClass)
+    iachoice[1].classList.add(iaClass2)
+    iachoice[2].classList.add(iaClass3)
+    iachoice[3].classList.add(iaClass4)
+    returnCard.forEach(element => {
+        element.classList.add("affich2")
+        element.classList.remove("Naffich2")
+    });
+    newRound.classList.remove("affich")
+    newRound.classList.add("Naffich")
+    i=0
+    startCardArray.forEach(element => {
+    if (element.className==="ciseau affich pointer startCard"){
+            element.className="ciseaux affich pointer startCard"
+    } else if (element.className==="feuill affich pointer startCard"){
+            element.className="feuille affich pointer startCard"
+    }else if (element.className==="pierr affich pointer startCard"){
+            element.className="pierre affich pointer startCard"
+    }
+    })
+    nocount = document.getElementsByClassName("supr")
+    nocount.forEach(element=>{
+        element.className="nocount"
+    })
+
 }

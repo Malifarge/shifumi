@@ -195,7 +195,8 @@ const Roundnew = () =>{
     returnCardItems = document.getElementsByClassName("Naffich2")
     returnCard = Array.from(returnCardItems)
     cardChoice.className="Naffich"
-    iachoice.className="pierre affich"
+    iachoice.className="random affich"
+    iaClass="random"
     returnCard.forEach(element => {
         element.classList.add("affich2")
         element.classList.remove("Naffich2")
