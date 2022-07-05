@@ -43,8 +43,9 @@ const carditems = document.getElementsByClassName("affich2")
 const card = Array.from(carditems)
 const cardChoice = document.getElementById("resulta")
 const iachoice = document.getElementById("IA")
+let i = 0
 let j = 0
-let iaClass="pierre"
+let iaClass="random"
 let playerChoice
 let playerScore= 0
 let iaScore = 0
@@ -92,6 +93,7 @@ const gamePrepare = () =>{
 // roulement de carte
 
 const moveCard = () =>{
+    if (i<25){    
     iachoice.classList.remove(iaClass)
     const resultArray = ["feuille","pierre","ciseaux"]
     iaClass=resultArray[j]
@@ -101,6 +103,27 @@ const moveCard = () =>{
         j =0
     }
     iachoice.classList.add(iaClass)
+    i++
+    } else{
+        myStopFunction()
+        game()
+    }
+
+}
+//  choix de la carte
+
+const cardIschoice = () => {
+    if (playerChoice==="ciseaux affich pointer"){
+        cardChoice.classList.add("ciseaux")
+        playerCard="ciseaux"
+    }else if (playerChoice==="feuille affich pointer"){
+        cardChoice.classList.add("feuille")
+        playerCard = "feuille"
+    }else if(playerChoice==="pierre affich pointer"){
+        cardChoice.classList.add("pierre")
+        playerCard="pierre"
+    }
+    return playerCard
 }
 
 // réglages roulement
@@ -108,10 +131,18 @@ const moveCard = () =>{
 // start
 
 const moveCardStart = () =>{
- myInterval = setInterval(moveCard, 500);
+gamePrepare()
+playerChoice = event.target.className
+cardChoice.classList.add("affich")
+cardChoice.classList.remove("Naffich")
+if (playerChoice==="random affich pointer"){
+    random()
+    playerChoice=`${result} affich pointer`
+}
+cardIschoice()
+ myInterval = setInterval(moveCard, 100);
 }
 
-window.onload = moveCardStart
 
 // stop
 const myStopFunction = () => {
@@ -121,18 +152,9 @@ const myStopFunction = () => {
 //   jeu
 
 const game = () =>{
-    playerChoice = event.target.className
-    gamePrepare()
-    myStopFunction()
-    cardChoice.classList.add("affich")
-    cardChoice.classList.remove("Naffich")
-    if (playerChoice==="random affich pointer"){
-        random()
-        playerChoice=`${result} affich pointer`
-    }
-    if (playerChoice==="ciseaux affich pointer"){
-        cardChoice.classList.add("ciseaux")
-        playerCard="ciseaux"
+    
+    if (playerCard==="ciseaux"){
+        
         if(iachoice.className==="affich pierre"){
             iaScore++
             roundWinner="IA"
@@ -145,9 +167,8 @@ const game = () =>{
             roundWinner="Nobody/Personne"
             iaCard="ciseaux"
         }
-    }else if (playerChoice==="feuille affich pointer"){
-        cardChoice.classList.add("feuille")
-        playerCard = "feuille"
+    }else if (playerCard==="feuille"){
+
         if (iachoice.className==="affich ciseaux"){
             iaScore++
             roundWinner="IA"
@@ -160,9 +181,7 @@ const game = () =>{
             roundWinner="Nobody/Personne"
             iaCard="feuille"
         }
-    }else if(playerChoice==="pierre affich pointer"){
-        cardChoice.classList.add("pierre")
-        playerCard="pierre"
+    }else if(playerCard==="pierre"){
         if(iachoice.className==="affich feuille"){
             iaScore++
             roundWinner="IA"
@@ -221,9 +240,9 @@ const Roundnew = () =>{
         element.classList.add("affich2")
         element.classList.remove("Naffich2")
     });
-    moveCardStart()
     newRound.classList.remove("affich")
     newRound.classList.add("Naffich")
+    i=0
 }
 
 // nouvelle partie
