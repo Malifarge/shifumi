@@ -37,20 +37,20 @@
 
         <!-- choix joueur -->
 
-        <section id="Joueur" class="player">
+        <section id="Joueur">
             <h2 class="FR affich">Mon choix</h2>
                 <h2 class="EN Naffich">My choice</h2>
 
                 <div class="flex row affich2">
-                    <div class="pierre affich pointer" onclick="moveCardStart()"></div>
-                    <div class="feuille affich pointer" onclick="moveCardStart()"></div>
+                    <div class="pierre affich pointer startCard" onclick="moveCardStart()"></div>
+                    <div class="feuille affich pointer startCard" onclick="moveCardStart()"></div>
                 </div>
                 <div class="flex row row2 affich2">  
-                    <div class="ciseaux affich pointer" onclick="moveCardStart()"></div>
-                    <div class="random affich pointer" onclick="moveCardStart()"></div>
+                    <div class="ciseaux affich pointer startCard" onclick="moveCardStart()"></div>
+                    <div class="random affich pointer startCard" onclick="moveCardStart()"></div>
                 </div>
 
-                <div class="Naffich" id="resulta"></div>
+                <div class="Naffich player" id="resulta"></div>
         </section>
 
         <!-- IAS -->
@@ -61,18 +61,18 @@
                 
                 <!-- IA 1 -->
 
-                <div id="IA1" class="player">
+                <div id="IA1">
                     <h2 class="FR affich">choix de l'IA1</h2>
                     <h2 class="EN Naffich">IA1 choice</h2>
-                    <div class="random affich IA"></div>
+                    <div class="random affich IA player"></div>
                 </div>
 
                 <!-- IA 2 -->
 
-                <div id="IA2" class="player">
+                <div id="IA2">
                     <h2 class="FR affich">choix de l'IA2</h2>
                     <h2 class="EN Naffich">IA2 choice</h2>
-                    <div class="random affich IA"></div>
+                    <div class="random affich IA player"></div>
                 </div>
 
             </article> 
@@ -81,22 +81,30 @@
 
                 <!-- IA 3 -->
 
-                <div id="IA3" class="player">
+                <div id="IA3">
                     <h2 class="FR affich">choix de l'IA3</h2>
                     <h2 class="EN Naffich">IA3 choice</h2>
-                    <div class="random affich IA"></div>
+                    <div class="random affich IA player"></div>
                 </div>
 
                 <!-- IA 4 -->
 
-                <div id="IA4" class="player">
+                <div id="IA4">
                     <h2 class="FR affich">choix de l'IA4</h2>
                     <h2 class="EN Naffich">IA4 choice</h2>
-                    <div class="random affich IA"></div>
+                    <div class="random affich IA player"></div>
                 </div>
 
             </article>
 
+        </section>
+
+        <!-- button new round and new game -->
+
+        <section class="flex btn">
+            <button class="Naffich" id="NewRound" onclick="Roundnew()"><p class="FR affich">Nouveau Round</p><p class="EN Naffich">New Round</p></button>
+            <p id="gameWinner" class="Naffich"></p>
+            <button class="Naffich" id="NewGame" onclick="reset()"><p class="FR affich">Nouvelle partie</p><p class="EN Naffich">New Game</p></button>
         </section>
 
     </main>

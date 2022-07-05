@@ -12,13 +12,15 @@ let iaClass3="random"
 let iaClass4="random"
 const IA = document.getElementsByClassName("IA")
 const iachoice = Array.from(IA)
-const players = document.getElementsByClassName("player")
-const playersArray=Array.from(players)
+let players = document.getElementsByClassName("player")
+let playersArray=Array.from(players)
 const Joueur = document.getElementById("Joueur")
 const IA1= document.getElementById("IA1")
 const IA2= document.getElementById("IA2")
 const IA3= document.getElementById("IA3")
 const IA4= document.getElementById("IA4")
+const startCard = document.getElementsByClassName("startCard")
+const startCardArray= Array.from(startCard)
 
 // Random
 
@@ -47,13 +49,13 @@ const gamePrepare = () =>{
 // choix carte
 
 const cardIschoice = () => {
-    if (playerChoice==="ciseaux affich pointer"){
+    if (playerChoice==="ciseaux affich pointer startCard"){
         cardChoice.classList.add("ciseaux")
         playerCard="ciseaux"
-    }else if (playerChoice==="feuille affich pointer"){
+    }else if (playerChoice==="feuille affich pointer startCard"){
         cardChoice.classList.add("feuille")
         playerCard = "feuille"
-    }else if(playerChoice==="pierre affich pointer"){
+    }else if(playerChoice==="pierre affich pointer startCard"){
         cardChoice.classList.add("pierre")
         playerCard="pierre"
     }
@@ -95,11 +97,20 @@ gamePrepare()
 playerChoice = event.target.className
 cardChoice.classList.add("affich")
 cardChoice.classList.remove("Naffich")
-if (playerChoice==="random affich pointer"){
+if (playerChoice==="random affich pointer startCard"){
     random()
     playerChoice=`${result} affich pointer`
 }
 cardIschoice()
+startCardArray.forEach(element => {
+    if (element.className==="ciseaux affich pointer startCard"){
+        element.className="ciseau affich pointer startCard"
+    } else if (element.className==="feuille affich pointer startCard"){
+        element.className="feuill affich pointer startCard"
+    }else if (element.className==="pierre affich pointer startCard"){
+        element.className="pierr affich pointer startCard"
+    }
+});
  myInterval = setInterval(moveCard, 100);
 }
 
@@ -112,5 +123,52 @@ const myStopFunction = () => {
 // Le jeu
 
 const game = () =>{
+    let suprfeuille
+    let suprpierre
+    let suprciseaux
+    let ciseaux = document.getElementsByClassName("ciseaux")
+    let ciseauxArray = Array.from(ciseaux)
+    let feuille = document.getElementsByClassName("feuille")
+    let feuilleArray = Array.from(feuille)
+    let pierre = document.getElementsByClassName("pierre")
+    let pierreArray = Array.from(pierre)
+    const numberOfCiseaux = ciseauxArray.length
+    const numberOfFeuille = feuilleArray.length
+    const numberOfPierre = pierreArray.length
+    if (numberOfCiseaux >  0 && numberOfFeuille > 0){
+        ciseauxArray.forEach(element => {
+            suprfeuille = Math.floor(Math.random()*numberOfFeuille)
+            feuilleArray[suprfeuille].classList.remove("player")
+            feuilleArray[suprfeuille].classList.add("supr")
 
+        });
+    }
+    if (numberOfFeuille >  0 && numberOfPierre > 0){
+        feuilleArray.forEach(element => {
+            suprpierre = Math.floor(Math.random()*numberOfPierre)
+            pierreArray[suprpierre].classList.remove("player")
+            pierreArray[suprpierre].classList.add("supr")
+        });
+    }
+    if (numberOfPierre > 0 && numberOfCiseaux > 0){
+        pierreArray.forEach(element => {
+            suprciseaux = Math.floor(Math.random()*numberOfCiseaux)
+            ciseauxArray[suprciseaux].classList.remove("player")
+            ciseauxArray[suprciseaux].classList.add("supr")
+        });
+    }
+
+    const suprimé=document.getElementsByClassName("supr")
+    const suprimArray=Array.from(suprimé)
+    console.log(suprimArray);
+    suprimArray.forEach(element => {
+        element.classList.add("Naffich")
+        element.classList.remove("affich")
+    });
+
+    players = document.getElementsByClassName("player")
+    playersArray=Array.from(players)
+    console.log(playersArray.length);
+    
+    
 }
