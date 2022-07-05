@@ -56,12 +56,7 @@ const moveCard = () =>{
     if (i<25){    
     iachoice.classList.remove(iaClass)
     const resultArray = ["feuille","pierre","ciseaux"]
-    iaClass=resultArray[j]
-    if (j<2){
-        j++
-    }else{
-        j =0
-    }
+    iaClass=resultArray [Math.floor(Math.random()*3)]
     iachoice.classList.add(iaClass)
     i++
     } else{
