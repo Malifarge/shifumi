@@ -1,22 +1,6 @@
 
 /* main */
 
-.row{
-    gap: 50px;
-}
-
-.row2{
-    margin-top: 50px;
-}
-
-.cardPos {
-    align-items: flex-start;
-}
-
-.affich2{
-    display: flex;
-}
-
 #playerscore,#iascore{
     color: #FC7987;
     font-size: 50px;
@@ -31,10 +15,6 @@ button{
 
 .btn{
     flex-direction: column;
-}
-
-.wrap{
-    flex-wrap: wrap;
 }
 
 .Win{

@@ -8,6 +8,11 @@
     align-items: center;
 }
 
+.wrap{
+    flex-wrap: wrap;
+}
+
+
 h1{
     font-family: 'Fascinate Inline', cursive;
     font-size: 30px;
@@ -79,6 +84,22 @@ main{
 
 .affich{
     display: block;
+}
+
+.row{
+    gap: 50px;
+}
+
+.row2{
+    margin-top: 50px;
+}
+
+.cardPos {
+    align-items: flex-start;
+}
+
+.affich2{
+    display: flex;
 }
 
 .pierre,.feuille,.ciseaux,.random{

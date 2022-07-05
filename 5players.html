@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5players</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/5players.css">
+
+</head>
+
+<body>
+
+    <!-- header -->
+    <header class="flex initialitems">
+
+        <section class="flex initialitems">
+            <h1>Shifumi</h1>
+            <article class="flex telrow">
+                <img src="./images/FR.png" alt="Français" onclick="Français()" class="pointer">
+                <img src="./images/EN.png" alt="English" onclick="English()" class="pointer">
+            </article>
+        </section>
+
+        <nav class="flex telrow initialitems">
+            <a href="./index.html"><p class="FR affich">Accueil</p> <p class="EN Naffich">Home</p></a>
+            <a href="./duel.html">Duel</a>
+        </nav>
+
+    </header>
+
+    <!-- main -->
+
+    <main class="flex wrap cardPos">
+
+        <!-- choix joueur -->
+
+        <section id="Joueur" class="player">
+            <h2 class="FR affich">Mon choix</h2>
+                <h2 class="EN Naffich">My choice</h2>
+
+                <div class="flex row affich2">
+                    <div class="pierre affich pointer" onclick="moveCardStart()"></div>
+                    <div class="feuille affich pointer" onclick="moveCardStart()"></div>
+                </div>
+                <div class="flex row row2 affich2">  
+                    <div class="ciseaux affich pointer" onclick="moveCardStart()"></div>
+                    <div class="random affich pointer" onclick="moveCardStart()"></div>
+                </div>
+
+                <div class="Naffich" id="resulta"></div>
+        </section>
+
+        <!-- IAS -->
+
+        <section>
+        
+            <article class="flex row">   
+                
+                <!-- IA 1 -->
+
+                <div id="IA1" class="player">
+                    <h2 class="FR affich">choix de l'IA1</h2>
+                    <h2 class="EN Naffich">IA1 choice</h2>
+                    <div class="random affich IA"></div>
+                </div>
+
+                <!-- IA 2 -->
+
+                <div id="IA2" class="player">
+                    <h2 class="FR affich">choix de l'IA2</h2>
+                    <h2 class="EN Naffich">IA2 choice</h2>
+                    <div class="random affich IA"></div>
+                </div>
+
+            </article> 
+
+            <article class="flex row">
+
+                <!-- IA 3 -->
+
+                <div id="IA3" class="player">
+                    <h2 class="FR affich">choix de l'IA3</h2>
+                    <h2 class="EN Naffich">IA3 choice</h2>
+                    <div class="random affich IA"></div>
+                </div>
+
+                <!-- IA 4 -->
+
+                <div id="IA4" class="player">
+                    <h2 class="FR affich">choix de l'IA4</h2>
+                    <h2 class="EN Naffich">IA4 choice</h2>
+                    <div class="random affich IA"></div>
+                </div>
+
+            </article>
+
+        </section>
+
+    </main>
+
+    <script src="./langue.js"></script>
+    <script src="./5players.js"></script>
+</body>
+
+</html>
